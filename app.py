@@ -11,8 +11,9 @@ def encode_image(image_file):
 st.set_page_config(page_title="Análisis de Imagen", layout="centered", initial_sidebar_state="collapsed")
 st.title("Análisis de Imagen 🤖🏞️")
 
-# Entrada de la clave de API
-ke = st.text_input('Ingresa tu Clave de API', type='password')
+# Barra lateral para ingresar la clave de API
+st.sidebar.header("Configuración")
+ke = st.sidebar.text_input('Ingresa tu Clave de API', type='password')
 os.environ['OPENAI_API_KEY'] = ke
 
 # Recuperar la clave de API de OpenAI
@@ -89,5 +90,7 @@ else:
     if not uploaded_file and analyze_button:
         st.warning("Por favor, carga una imagen.")
     if not api_key:
+        st.warning("Por favor, ingresa tu clave API.")
+
         st.warning("Por favor, ingresa tu clave API.")
 
